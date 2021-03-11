@@ -1,4 +1,5 @@
 # Linux 常用命令小记
+#### /代表根目录，~代表用户的家目录  
 #### 解压
 filename.zip的解压 unzip filename.zip  
 filename.tar.gz的解压 tar -zxvf filename.tar.gz 
