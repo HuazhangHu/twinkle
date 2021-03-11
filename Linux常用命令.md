@@ -1,5 +1,6 @@
 # Linux 常用命令小记
 #### /代表根目录，~代表用户的家目录  
+每个用户都有家目录，也就是用户的个人目录，比如root用户的”家“目录就是/root,普通用户a的家目录就是/home/a
 #### 解压
 filename.zip的解压 unzip filename.zip  
 filename.tar.gz的解压 tar -zxvf filename.tar.gz 
