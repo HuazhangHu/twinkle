@@ -12,6 +12,7 @@ tar -xvf filename.tar.Z
 tar --help 
 #### 打包压缩  
 打包成tar.gz格式压缩包 tar -zcvf filename.tar.gz /filename   
+打包成.zip格式 zip -q -r filename.zip /filename
 #### 远程拷贝  
 scp -r local_folder remote_username@remote_ip:remote_folder    
 scp /home/space/music/1.mp3 root@www.runoob.com:/home/root/others/music  
