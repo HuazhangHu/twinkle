@@ -68,5 +68,5 @@ df -a 显示所有文件系统，-h 用人们可读的方式进行显示 df -ah 
 #### man <命令> 查看命令的详细使用手册
 #### 清理屏幕  
 clear
-#### 进入root权限 sudo -s
+#### 进入root权限 sudo -s 退出root exit
 #### 显示系统版本号等信息 uname -a
