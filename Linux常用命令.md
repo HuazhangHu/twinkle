@@ -70,3 +70,4 @@ df -a 显示所有文件系统，-h 用人们可读的方式进行显示 df -ah 
 clear
 #### 进入root权限 sudo -s 退出root exit
 #### 显示系统版本号等信息 uname -a
+#### 查看目录与文件的磁盘占用 du -a 显示所有 -h 按k.M.GB显示
