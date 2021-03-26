@@ -26,11 +26,13 @@ sudo chmod 777  data/ project/
 #### U盘挂载  
  查看U盘 fdisk -l    
  挂载U盘  mount /dev/sdc1 /mnt  
- 复制文件cp –r /mnt/logs /usr/  
+ 复制文件cp –r 源地址 目的地址  
  -r 指操作文件夹下的多个文件  
  卸载U盘 umount /dev/sd1  
 #### 数据库导入 
-sudo mysql -uroot -p itb < item_huh_jtag0305.sql    
+sudo mysql -uroot -p database_name < input_name.sql    
+#### 数据库导出 
+sudo mysqldump -u root -p database_name > output_name.sql 
 root登录加了密码，多个参数 -p 
 #### 建立软链接（快捷方式） 
 软链接： ln -s 源文件 目标文件  
