@@ -48,13 +48,17 @@ head 文件名 #仅查看头部,还可以指定行数
 ps -aux 显示所有包含其他使用者的行程  （-au 显示较详细的资讯）    
 ps -ef | grep 进程关键字 例如ps -ef|grep vim   
 ps -A 显示所有进程信息  
- ps -u root  显示root进程用户的信息  
+ps -u root  显示root进程用户的信息  
  
 使一个命令在后台运行：一般都是使用 & 在命令结尾来让程序自动运行。(命令后可以不追加空格)  
 #### kill杀死进程  
+kill SIGNAL_VALUE PID
 列出所有信号名称 kill -l  
 先用ps查找进程，然后用kill杀掉 kill 3268
 彻底杀死进程 kill –9 3268  
+value 1 挂起进程   
+value 15 发出终止信号  
+value 17，19，23 停止进程  
 #### 搜索文件  
 find <指定目录> <指定条件> <指定动作> find / -name "string*"  
 whereis 加参数与文件名,只能查二进制文件、说明文档，源文件等  
