@@ -4,6 +4,7 @@
 
 3. git config --global user.email "957001934@qq.com"
 
-4. ssh-keygen -t rsa -C "957001934@qq.com"  
+4. ssh-keygen -t rsa -C "957001934@qq.com"    
+5. cat /home/hhz/.ssh/id_rsa.pub  
 
-5. github的setting中新增ssh key
+6. github的setting中新增ssh key
