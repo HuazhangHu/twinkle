@@ -5,7 +5,7 @@ sudo wget http://47.107.150.167:81/sources.list
 sudo apt update  
 
 #### 安装python3.7并改为默认python
->> 换源，为了方便把sources.list的内容放在公网服务器了
+>> 换源，为了方便把sources.list的内容放在公网服务器了    
 sudo apt install python3.7 python3.7-dev python3.7-distutils    
 sudo rm /usr/bin/python  
 sudo ln -s /usr/bin/python3.7 /usr/bin/python    
