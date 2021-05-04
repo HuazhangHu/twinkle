@@ -1,7 +1,16 @@
+#### 换源 
+cd /etc/apt  
+sudo mv sources.list sources.list.bak  
+sudo wget http://47.107.150.167:81/sources.list  
+sudo apt update  
+
 #### 安装python3.7并改为默认python  
 sudo apt install python3.7 python3.7-dev python3.7-distutils    
 sudo rm /usr/bin/python  
 sudo ln -s /usr/bin/python3.7 /usr/bin/python    
+ 
+#### 设置时区 
+sudo timedatectl set-timezone Asia/Shanghai  
  
 #### 安装pip3.7    
 mkdir -p tool/pip  
