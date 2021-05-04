@@ -83,3 +83,9 @@ clear
 -a 显示所有 -h 按k.M.GB显示
 #### 查看端口 
 netstat -an
+
+#### 查看ubuntu版本
+lsb_release -a  
+
+#### 查看系统是32还是64位
+getconf LONG_BIT  
