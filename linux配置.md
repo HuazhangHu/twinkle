@@ -13,7 +13,7 @@ sudo ln -s /usr/bin/python3.7 /usr/bin/python
 #### 设置时区 
 sudo timedatectl set-timezone Asia/Shanghai  
  
-#### 安装pip3.7    
+#### 安装pip  
 mkdir -p tool/pip  
 cd tool/pip    
 wget https://bootstrap.pypa.io/get-pip.py   
