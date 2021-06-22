@@ -8,3 +8,5 @@ ssh-keygen -t rsa -C "957001934@qq.com"
 cat /home/hhz/.ssh/id_rsa.pub    
 
 6.github的setting中新增ssh key
+
+7.[pycharm配置，关联gitlib](https://www.cnblogs.com/gl1573/p/11269413.html)
