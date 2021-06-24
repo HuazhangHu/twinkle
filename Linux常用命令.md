@@ -89,3 +89,6 @@ lsb_release -a
 
 #### 查看系统是32还是64位
 getconf LONG_BIT  
+
+#### 查询套件
+rpm -a -q | grep mysql
