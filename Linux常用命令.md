@@ -92,3 +92,6 @@ getconf LONG_BIT
 
 #### 查询套件
 rpm -a -q | grep mysql
+
+#### TCPDUMP抓包
+sudo tcpdump -i enp1s0 -w 保存的CAP文件.cap 
