@@ -1,4 +1,5 @@
 #### 换源   
+换源的话一定要注意ubuntu的版本和源的版本是否对的上
 换源，为了方便把sources.list的内容放在公网服务器了      
 cd /etc/apt  
 sudo mv sources.list sources.list.bak  
