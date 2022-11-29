@@ -41,3 +41,11 @@ sudo service network-manager stop
 sudo rm /var/lib/NetworkManager/NetworkManager.state  
 
 sudo service network-manager start  
+
+##### Conda  
+[conda安装](https://blog.csdn.net/qq_44173974/article/details/125336916)
+conda env list  
+source activate  
+conda activate [env_name]  
+conda deactivate  
+conda install  
