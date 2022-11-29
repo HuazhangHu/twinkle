@@ -32,3 +32,24 @@ parser.add_argument("-u", "--UDP", help="Perform a UDP scan on the ports specifi
 parser.add_argument("-t", "--traceroute", help="Use traceroute with the scan", action="store_true")
 args = vars(parser.parse_args())
 ```
+
+```  
+import argparse
+ 
+# 1. 定义命令行解析器对象
+parser = argparse.ArgumentParser(description='Demo of argparse')
+ 
+# 2. 添加命令行参数
+parser.add_argument('--epochs', type=int, default=30)
+parser.add_argument('--batch', type=int, default=4)
+ 
+# 3. 从命令行中结构化解析参数
+args = parser.parse_args()
+print(args)
+epochs = args.epochs
+batch = args.batch
+print('show {}  {}'.format(epochs, batch))
+```  
+
+
+
