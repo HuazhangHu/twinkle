@@ -1,5 +1,19 @@
 from pytorch_lightning import seed_everything
 import argparse
+import yaml
+from omegaconf import OmegaConf
+
+def read_yaml2(yaml_path):
+    '''
+    using omegaconf to read yaml file
+    '''
+    config = OmegaConf.load(yaml_path)
+    # print('type:{type(conf)}')
+    # print(config.model.optimization)
+    # print(config.params.learning_rate)
+    # print(config.model.model_name)
+    
+    return config
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -16,37 +30,28 @@ def parse_args():
         help="num of frame",
     )
     parser.add_argument(
-        "--model",
-        type=str,
-        help="backbone model",
-    )
-    parser.add_argument(
         "--config",
         type=str,
-        default="configs/stable-diffusion/v2-inference.yaml",
+        default="test.yaml",
         help="path to config which constructs model",
-    )
-    parser.add_argument(
-        "--ckpt",
-        type=str,
-        help="path to checkpoint of model",
     )
     parser.add_argument(
         "--seed",
         type=int,
         default=42,
-        help="the seed (for reproducible sampling)",
-    )
-    parser.add_argument(
-        "--precision",
-        type=str,
-        help="evaluate at this precision",
-        choices=["full", "autocast"],
-        default="autocast"
+        help="seed everything"
     )
     opt = parser.parse_args()
     return opt
 
 def main(opt):
     seed_everything(opt.seed)
+    config=read_yaml2(opt.config)
+    print(config.model.optimization)
+    print(config.params.learning_rate)
+    print(config.model.model_name)
 
+
+if __name__ == "__main__":
+    opt=parse_args()
+    main(opt)
