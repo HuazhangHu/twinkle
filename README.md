@@ -16,6 +16,8 @@
 #### [git配置](https://github.com/957001934/Linux-Tutorial/blob/main/Linux/git%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE.md)
 ------
 ### [Python总结](https://github.com/957001934/twinkle/tree/main/Python)
+#### [路径调用](https://blog.csdn.net/Gou_Hailong/article/details/124295301)
+
 #### [深拷贝与浅拷贝](https://github.com/957001934/twinkle/blob/main/Python/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D.md)   
 
 #### [迭代器与生成器](https://github.com/957001934/twinkle/blob/main/Python/%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8.md)  
