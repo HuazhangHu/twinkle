@@ -1,4 +1,3 @@
-
 import os
 import sys
 import argparse
@@ -51,12 +50,15 @@ def train_process(args, local_rank):
     test_loader = DataLoader(test_dataset, batch_size=args.batch_size, sampler=test_sampler, num_workers=8)
     
     model = get_model(args)
-    model = DDP(model.cuda(),device_ids=[local_rank], output_device=local_rank)
+    model = torch.nn.SyncBatchNorm.convert_sync_batchnorm(model) # 全局同步BN
+    model = DDP(model.cuda(),device_ids=[local_rank], output_device=local_rank, find_unused_parameters=False)
     
     train_loop(args, model, train_loader, test_loader)
 
 def train_loop(args, model, trainloader, testloader):
     local_rank = dist.get_rank()
+    scaler = torch.cuda.amp.GradScaler()
+
     if args.optim=='adam':
         optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=args.lr, betas=(0.9,0.98), weight_decay=0.0005, eps=1e-5)
     if args.optim == 'adagrad':
@@ -68,10 +70,14 @@ def train_loop(args, model, trainloader, testloader):
     elif args.lr_schedule=='cosine':
         scheduler =  torch.optim.lr_scheduler.CosineAnnealingLR(optimizer = optimizer, T_max =  args.epochs) #  * iters 
 
+    if dist.get_rank() == 0 and ckpt_path is not None:
+        model.load_state_dict(torch.load(ckpt_path))
+
     for epoch in range(args.currEpoch, args.epochs + args.currEpoch):
         if args.train:
             trainLosses=[]
             model.train()
+            trainloader.sampler.set_epoch(epoch)
             pbar = enumerate(trainloader)
             for iters, (_, _, data, _) in pbar:
                 # print(data.shape)
@@ -82,8 +88,11 @@ def train_loop(args, model, trainloader, testloader):
                     rec_loss = nn.MSELoss(reduction='none')
                     rec = rec_loss(outputs, data)
                     loss = 0.5 * rec.sum(dim=(1,2,3,4)).mean()
-                loss.backward(torch.ones_like(loss))
-                optimizer.step()
+                    
+                scaler.scale(loss).backward()
+                scaler.step(optimizer)
+                scaler.update()
+                dist.all_reduce(loss.div_(torch.cuda.device_count()))
 
                 train_loss =loss.cpu().detach().numpy()
                 trainLosses.append(train_loss)
@@ -95,6 +104,8 @@ def train_loop(args, model, trainloader, testloader):
             torch.cuda.empty_cache()
             scheduler.step()    
 
+        if dist.get_rank() == 0:
+            torch.save(model.module.state_dict(), "%d.ckpt" % epoch)
 
 def main(args):
     n_gpus = torch.cuda.device_count()
