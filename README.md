@@ -1,7 +1,7 @@
 
 学习计算机过程中的一些笔记与总结
 ### [Pytorch]  
-#### [DDP单机多卡模板](https://github.com/HuazhangHu/twinkle/blob/main/DDP_template.py)  
+#### [DDP单机多卡模板](https://github.com/HuazhangHu/twinkle/blob/main/DDP_template.py)
 
 ### [Linux](https://github.com/957001934/twinkle/tree/main/Linux)
 #### [Linux常用命令](https://github.com/957001934/Linux-Tutorial/blob/main/Linux/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.md)  
