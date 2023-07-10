@@ -49,3 +49,7 @@ source activate
 conda activate [env_name]  
 conda deactivate  
 conda install  
+
+#### apt  
+sudo apt-get update
+sudo apt-get upgrade --fix-missing
