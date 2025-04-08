@@ -10,3 +10,5 @@ cat /home/hhz/.ssh/id_rsa.pub
 6.github的setting中新增ssh key
 
 7.[pycharm配置，关联gitlib](https://www.cnblogs.com/gl1573/p/11269413.html)
+
+https://blog.csdn.net/2301_79287346/article/details/145524376
